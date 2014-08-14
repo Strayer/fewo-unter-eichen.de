@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: default
 title: Anfahrt
 permalink: /anfahrt/
+weight: 4
 ---
 
 # Anfahrt

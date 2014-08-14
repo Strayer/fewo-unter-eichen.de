@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: default
 title: Impressum
 permalink: /impressum/
+hide_in_menu: true
 ---
 
 # Impressum

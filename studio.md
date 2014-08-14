@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: default
 title: Studio
 permalink: /studio/
+weight: 1
 ---
 
 # Studio für 1-2 Personen

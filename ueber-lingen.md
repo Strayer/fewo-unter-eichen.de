@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: default
 title: Über Lingen
 permalink: /ueber-lingen/
+weight: 3
 ---
 
 # Über Lingen

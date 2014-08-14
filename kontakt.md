@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: default
 title: Kontakt
 permalink: /kontakt/
+weight: 6
 ---
 
 # Kontakt

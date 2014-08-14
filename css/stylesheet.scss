@@ -1,0 +1,267 @@
+---
+---
+
+@import "../js/fancybox/jquery.fancybox.css";
+@import "../js/fancybox/helpers/jquery.fancybox-buttons.css";
+@import "../js/fancybox/helpers/jquery.fancybox-thumbs.css";
+
+@import "normalize";
+@import "fonts";
+
+$sans-font: "open_sans", sans-serif;
+$serif-font: "droid_serif", sans-serif;
+
+$red: #C00;
+$turquois-dark: #336666;
+$turquois-light: #a4c2c2;
+
+html, body {
+	background-color: #999966;
+	margin: 0;
+	padding: 0;
+	font-family: $sans-font;
+	font-size: 10pt;
+	line-height: 180%;
+	color: #333333;
+}
+
+html.no-mobile {
+	min-width: 990px;
+}
+
+h3,
+strong {
+	font-weight: bold;
+}
+
+#title {
+	font-weight: bold;
+	font-size: 18pt;
+	letter-spacing: 0.2em;
+	margin: 10px 10px 10px 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+
+	a {
+		color: #333300;
+		text-decoration: none;
+		font-family: $serif-font;
+	}
+}
+
+#container {
+	position: relative;
+	border-bottom: 1px solid white;
+	border-top: 1px solid white;
+	background: white url("/assets/description_background.gif") repeat-y;
+}
+
+#inner_container {
+	margin-left: 230px;
+}
+
+#description {
+	width: 230px;
+	float: left;
+
+	span {
+		display: block;
+		margin: 20px;
+		text-align: justify;
+		line-height: 18px;
+		color: $turquois-dark;
+	}
+}
+
+#menu {
+	background-color: $turquois-light;
+	height: 36px;
+	margin-left: 1px;
+
+	a {
+		padding-left: 10px;
+		padding-right: 10px;
+		color: $turquois-dark;
+		vertical-align: middle;
+		line-height: 36px;
+		letter-spacing: 0.1em;
+		text-decoration: none;
+		font-weight: normal;
+		display: block;
+		float: left;
+		height: 36px;
+
+		&.active {
+			font-weight: bold;
+			background-color: #fff;
+		}
+
+		&:hover {
+			color: $red;
+		}
+
+		&.active:hover {
+			color: $turquois-dark;
+		}
+	}
+}
+
+#content {
+	float: left;
+	padding: 20px;
+	width: 723px;
+
+	h2, h3, h4, h5, h6 {
+		font-family: $serif-font;
+		letter-spacing: 0.1em;
+		margin: 0 0 10px 0;
+		font-weight: bold;
+		color: $red;
+	}
+
+	h2 {
+		font-size: 14pt;
+	}
+
+	h3 {
+		font-size: 12pt;
+	}
+
+	h4 {
+		font-size: 100%;
+	}
+
+	a {
+		color: $red;
+		text-decoration: none;
+		font-weight: normal;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	ul {
+		padding: 0;
+	}
+
+	ul, p {
+		margin: 10px 0;
+	}
+
+	li {
+		list-style: disc inside;
+		margin-left: 5px;
+		margin-top: 2px;
+		margin-bottom: 2px;
+	}
+}
+
+#footer {
+	background-color: #a4c2c2;
+	height: 36px;
+	line-height: 36px;
+	border-top: 1px solid white;
+	padding: 0 10px;
+	color: #336666;
+	margin-left: 230px;
+	position: relative;
+
+	.spacer {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		height: 100%;
+		background-color: #fff;
+		width: 1px;
+		overflow: hidden;
+	}
+
+	a, a:hover {
+		color: $turquois-dark;
+		text-decoration: none;
+	}
+
+	a:hover {
+		color: $red;
+	}
+}
+
+.csc-mailform li {
+	list-style: none !important;
+}
+
+.csc-mailform input[type=submit] {
+	padding: 5px;
+}
+
+table.contenttable td {
+	padding: 2px;
+	vertical-align: top;
+}
+
+a.fancybox {
+	display: block;
+	float: left;
+	width: 100px;
+	height: 100px;
+	margin-left: 5px;
+	padding: 4px;
+	line-height: 1;
+	border: 1px solid #ddd;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+
+	&:hover {
+		border-color: $turquois-light;
+		-webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+		-moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+		box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+	}
+
+	> img {
+		display: block;
+		max-width: 100%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
+
+.mobile {
+	#description {
+		display: none;
+	}
+
+	#container {
+		background-image: none;
+	}
+
+	#inner_container {
+		margin-left: 0;
+	}
+
+	&.start-section, &.repos-fewo_unter_eichen-section {
+		#description
+		{
+			display: block;
+			position: absolute;
+			top: 37px;
+			height: 172px;
+			width: 100%;
+			background-color: $turquois-light;
+
+			img {
+				float: left;
+				padding-right: 10px;
+			}
+		}
+
+		#content {
+			margin-top: 172px;
+		}
+	}
+}

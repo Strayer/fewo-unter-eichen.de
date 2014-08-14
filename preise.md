@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: default
 title: Preise
 permalink: /preise/
+weight: 5
 ---
 
 # Preise

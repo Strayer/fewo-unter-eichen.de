@@ -1,20 +1,121 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="de">
+<head>
+	<!-- Zeug das vom Typo3 gemacht wird -->
+	<meta charset="utf-8">
+	<title>{{ site.title }}{% if page.title %}: {{ page.title }}{% endif %}</title>
 
-  {% include head.html %}
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="{{ "/css/stylesheet.css" | prepend: site.baseurl }}">
 
-  <body>
+	<!-- Allgemeiner Kram -->
+	<meta name="viewport" content="width=745">
+	<meta http-equiv="X-UA-Compatible" content="IE=10">
+	<meta http-equiv="content-language" content="de-de">
+	<meta name="description" content="{{ site.description }}">
 
-    {% include header.html %}
+	<!-- Icons -->
+	<link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
 
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </div>
+	<!-- OpenGraph -->
+	<meta property="og:title" content="{{ site.title }}{% if page.title %}: {{ page.title }}{% endif %}">
+	<meta property="og:type" content="website">
+	<meta property="og:locale" content="de_DE">
+	<meta property="og:url" content="{{ site.url }}/">
+	<meta property="og:image" content="{{ site.url }}/assets/images/eingang.jpg">
+	<meta property="og:description" content="{{ site.description }}">
 
-    {% include footer.html %}
+	<!-- Google Analytics -->
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-36080374-1']);
+		_gaq.push(['_gat._anonymizeIp']);
+		_gaq.push(['_trackPageview']);
 
-  </body>
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
 
+		var _paq = _paq || [];
+		_paq.push(["trackPageView"]);
+		_paq.push(["enableLinkTracking"]);
+
+		(function() {
+			var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.olle-orks.org/";
+			_paq.push(["setTrackerUrl", u+"piwik.php"]);
+			_paq.push(["setSiteId", "5"]);
+			var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+			g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+		})();
+	</script>
+</head>
+<body itemscope itemtype="http://schema.org/Hotel">
+	<h1 id="title" itemprop="name"><a href="/">Ferienwohnung &#34;Unter Eichen&#34; in Lingen &#9733;&#9733;&#9733;</a></h1>
+
+	<div id="container">
+		<div id="description">
+			<img itemprop="image" src="/assets/eingang.jpg" alt="Eingang der Ferienwohnung" width="230" height="172">
+			<span itemprop="description">{{ site.description }}</span>
+		</div>
+		<div id="inner_container">
+			<div id="menu">
+				<a {% if page.url == "/index.html" %}class="active"{% endif %} href="/">Start</a>
+				{% for weight in (1..10) %}
+					{% for node in site.pages %}
+						{% if node.hide_in_menu != true and node.weight == weight %}
+							{% if node.title %}
+								<a {% if page.url == node.url %}class="active"{% endif %} href="{{ node.url | prepend: site.baseurl }}">{{ node.title }}</a>
+							{% endif %}
+						{% endif %}
+					{% endfor %}
+				{% endfor %}
+			</div>
+			<div id="content">
+				{{ content }}
+			</div>
+		</div>
+		<div style="clear: both;">&nbsp;</div>
+
+		<div id="footer" itemprop="location" itemscope itemtype="http://schema.org/PostalAddress">
+			<div class="spacer"></div>
+			<span itemprop="name">Ferienwohnung "Unter Eichen"</span>,
+			<span itemprop="streetAddress">Am Strootbach 7a</span>,
+			<span itemprop="postalCode">49809</span>&nbsp;<span itemprop="addressLocality">Lingen</span>
+			|
+			<a href="/impressum/">Impressum</a>
+			|
+			<a href="/haftungsausschluss-datenschutz/">Haftungsausschluss &amp; Datenschutz</a>
+		</div>
+	</div>
+
+	<div style="display: none;" itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+		<meta itemprop="latitude" content="52.518839" />
+		<meta itemprop="longitude" content="7.337637" />
+	</div>
+
+	<script src="/js/head.core.min.js"></script>
+	<script src="/js/jquery-1.11.0.min.js"></script>
+	<script src="/js/fancybox/jquery.fancybox.pack.js"></script>
+	<script src="/js/fancybox/helpers/jquery.fancybox-buttons.min.js"></script>
+	<script src="/js/fancybox/helpers/jquery.fancybox-thumbs.min.js"></script>
+	<script>
+		if (window.location.href.match(/\/studio\//))
+		{
+			$(document).ready(function() {
+				var fancy_options = {
+					helpers: {
+						thumbs: {
+							width: 50,
+							height: 50
+						},
+						buttons: {}
+					}
+				};
+				$(".fancybox").fancybox(fancy_options);
+			});
+		}
+	</script>
+</body>
 </html>

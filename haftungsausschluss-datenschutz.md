@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: default
 title: Haftungsausschluss & Datenschutz
 permalink: /haftungsausschluss-datenschutz/
+hide_in_menu: true
 ---
 
 # Haftungsausschluss & Datenschutz

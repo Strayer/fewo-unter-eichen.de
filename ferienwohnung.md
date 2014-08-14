@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: default
 title: Ferienwohnung
 permalink: /ferienwohnung/
+weight: 2
 ---
 
 # Ferienwohnung
