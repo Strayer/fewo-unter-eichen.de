@@ -5,7 +5,7 @@ permalink: /kontakt/
 weight: 6
 ---
 
-# Kontakt
+## Kontakt
 
 Sie können uns wie folgt erreichen:
 

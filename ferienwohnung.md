@@ -5,7 +5,7 @@ permalink: /ferienwohnung/
 weight: 2
 ---
 
-# Ferienwohnung
+## Ferienwohnung
 
 ![Mittelpunkt](/assets/ferienwohnung-mittelpunkt.jpg)
 

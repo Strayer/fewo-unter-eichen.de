@@ -5,7 +5,7 @@ permalink: /studio/
 weight: 1
 ---
 
-# Studio für 1-2 Personen
+## Studio für 1-2 Personen
 
 * aufwendig renoviert und gestaltet (Fertigstellung Febr. 2012)
 * individuelles Wohnen mit Gartennutzung, separater Eingang

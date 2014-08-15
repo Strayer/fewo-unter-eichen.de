@@ -5,9 +5,9 @@ permalink: /preise/
 weight: 5
 ---
 
-# Preise
+## Preise
 
-## Ferienwohnung
+### Ferienwohnung
 
 **Preise pro Nacht (Vermietung ab zwei Nächte):**
 
@@ -17,7 +17,7 @@ Ab drei Nächten weitere Ermäßigung nach Absprache.
 
 inkl. Endreinigung; Bettwäsche 1x wöchentlich; Handtücher 2x wöchentlich
 
-## Studio
+### Studio
 
 **Preise pro Nacht für eine Nacht:**
 

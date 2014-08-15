@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# "Unter Eichen"
+## "Unter Eichen"
 
 **Ihr Feriendomizil** oder **Ihr Wohnort** für Ihren Business-Aufenthalt.
 
@@ -10,7 +10,7 @@ Seit 2005 steht die Ferienwohnung "Unter Eichen" für Urlauber und Geschäftsrei
 
 Die Alternative zum Hotel - für eine Nacht, eine Woche, einen Monat, individuell planbar...
 
-## Ferienwohnung
+### Ferienwohnung
 
 * eine helle, renovierte, geräumige Wohnung mit individuellem Flair
 * ein abgegrenzter Gartenteil mit Laube, Strandkorb und Grill
@@ -19,7 +19,7 @@ Die Alternative zum Hotel - für eine Nacht, eine Woche, einen Monat, individuel
 * für 2 Erwachsene (und 2 Kinder)
 * [lesen sie mehr...](/ferienwohnung/)
 
-## Studio
+### Studio
 
 * aufwendig renoviertes Apartment im Dachgeschoss
 * Gartennutzung

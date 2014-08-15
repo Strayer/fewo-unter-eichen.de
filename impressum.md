@@ -5,7 +5,7 @@ permalink: /impressum/
 hide_in_menu: true
 ---
 
-# Impressum
+## Impressum
 
 Angaben gemäß § 5 TMG:
 
