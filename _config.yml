@@ -11,6 +11,7 @@ url: "http://fewo-unter-eichen.de" # the base hostname & protocol for your site
 # Build settings
 markdown: kramdown
 exclude: [".gitignore", ".ruby-version", "Gemfile", "Gemfile.lock"]
+source: ./source
 
 sass:
   sass_dir: _sass
