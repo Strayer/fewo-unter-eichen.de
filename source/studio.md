@@ -4,10 +4,6 @@ title: Studio
 permalink: /studio/
 weight: 1
 extra_footer: |
-  <script src="/js/jquery-1.11.0.min.js"></script>
-  <script src="/js/fancybox/jquery.fancybox.pack.js"></script>
-  <script src="/js/fancybox/helpers/jquery.fancybox-buttons.min.js"></script>
-  <script src="/js/fancybox/helpers/jquery.fancybox-thumbs.min.js"></script>
   <script>
   	$(document).ready(function() {
   		$(".fancybox").fancybox({

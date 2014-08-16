@@ -7,8 +7,51 @@ module.exports = function(grunt) {
 			src: "source"
 		},
 
+		copy: {
+			dist: {
+				files: [
+					{
+						src: [
+							"assets/**/*.gif",
+							"assets/**/*.png",
+							"assets/**/*.jpg",
+							"assets/**/*.ico",
+							"assets/fonts/*"
+						],
+						dest: "<%= dirs.dest %>/",
+						expand: true,
+						cwd: "<%= dirs.src %>/"
+					}
+				]
+			}
+		},
+
 		jekyll: {
 			site: {}
+		},
+
+		sass: {
+			dist: {
+				options: {
+					style: 'expanded'
+				},
+				files: {
+					'<%= dirs.dest %>/assets/css/stylesheet.css': '<%= dirs.src %>/assets/scss/stylesheet.scss'
+				}
+			}
+		},
+
+		concat: {
+			js: {
+				separator: ";",
+				src: [
+					"<%= dirs.src %>/assets/js/head.core.min.js",
+					"<%= dirs.src %>/assets/js/jquery-1.11.0.js",
+					"<%= dirs.src %>/assets/js/fancybox/jquery.fancybox.pack.js",
+					"<%= dirs.src %>/assets/js/fancybox/helpers/*.js"
+				],
+				dest: "<%= dirs.dest %>/assets/js/pack.js"
+			}
 		},
 
 		connect: {
@@ -45,8 +88,9 @@ module.exports = function(grunt) {
 		"clean",
 		"jekyll",
 		//"useminPrepare",
-		//"copy",
-		//"concat",
+		"copy",
+		"concat",
+		"sass",
 		//"uncss",
 		//"cssmin",
 		//"uglify",
@@ -58,8 +102,9 @@ module.exports = function(grunt) {
 	grunt.registerTask("dev", [
 		"jekyll",
 		//"useminPrepare",
-		//"copy",
-		//"concat",
+		"copy",
+		"concat",
+		"sass",
 		//"filerev",
 		//"usemin"
 	]);
