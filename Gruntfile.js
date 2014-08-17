@@ -45,9 +45,9 @@ module.exports = function(grunt) {
 			js: {
 				separator: ";",
 				src: [
-					"<%= dirs.src %>/assets/js/head.core.min.js",
-					"<%= dirs.src %>/assets/js/jquery-1.11.0.js",
-					"<%= dirs.src %>/assets/js/fancybox/jquery.fancybox.pack.js",
+					"<%= dirs.src %>/assets/js/head.core.js",
+					"<%= dirs.src %>/assets/js/jquery-1.11.1.js",
+					"<%= dirs.src %>/assets/js/fancybox/jquery.fancybox.js",
 					"<%= dirs.src %>/assets/js/fancybox/helpers/*.js"
 				],
 				dest: "<%= dirs.dest %>/assets/js/pack.js"
