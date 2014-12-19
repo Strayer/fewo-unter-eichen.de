@@ -1,6 +1,8 @@
 "use strict";
 
 module.exports = function(grunt) {
+	var packageJson = grunt.file.readJSON("package.json");
+	
 	grunt.initConfig({
 		dirs: {
 			dest: "_site",
@@ -87,19 +89,28 @@ module.exports = function(grunt) {
 					mode: "tgz",
 					level: 9,
 					pretty: true,
-					archive: "<%= dirs.dist %>/site.tar.gz"
+					archive: "<%= dirs.dist %>/<%= packageJson.name %>-<%= git.rev %>.tar.gz"
 				},
 				expand: true,
 				cwd: "<%= dirs.dest %>/",
 				src: ["**/*"]
 			}
+		},
+		
+		"git-describe": {
+			build: {}
 		}
 	});
 
 	require("load-grunt-tasks")(grunt, {scope: "devDependencies"});
 	require("time-grunt")(grunt);
 
+    grunt.event.once('git-describe', function (rev) {
+        grunt.config.set('git.rev', rev);
+    });
+
 	grunt.registerTask("build", [
+		"git-describe",
 		"clean",
 		"jekyll",
 		//"useminPrepare",
