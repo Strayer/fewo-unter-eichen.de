@@ -1,4 +1,5 @@
 _site/
+/dist/
 .sass-cache/
 /.idea/
 /node_modules/

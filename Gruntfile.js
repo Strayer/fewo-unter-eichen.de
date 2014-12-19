@@ -4,7 +4,8 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		dirs: {
 			dest: "_site",
-			src: "source"
+			src: "source",
+			dist: "dist"
 		},
 
 		copy: {
@@ -78,6 +79,20 @@ module.exports = function(grunt) {
 
 		clean: {
 			dist: "<%= dirs.dest %>/"
+		},
+		
+		compress: {
+			main: {
+				options: {
+					mode: "tgz",
+					level: 9,
+					pretty: true,
+					archive: "<%= dirs.dist %>/site.tar.gz"
+				},
+				expand: true,
+				cwd: "<%= dirs.dest %>/",
+				src: ["**/*"]
+			}
 		}
 	});
 
@@ -113,5 +128,10 @@ module.exports = function(grunt) {
 		"dev",
 		"connect",
 		"watch"
+	]);
+	
+	grunt.registerTask("dist", [
+		"build",
+		"compress"
 	]);
 };
