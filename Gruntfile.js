@@ -1,14 +1,14 @@
 "use strict";
 
 module.exports = function(grunt) {
-	var packageJson = grunt.file.readJSON("package.json");
-	
 	grunt.initConfig({
 		dirs: {
 			dest: "_site",
 			src: "source",
 			dist: "dist"
 		},
+		
+		packageJson: grunt.file.readJSON("package.json"),
 
 		copy: {
 			dist: {
