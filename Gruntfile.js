@@ -29,6 +29,25 @@ module.exports = function(grunt) {
 			}
 		},
 
+        htmlmin: {
+            dist: {
+                options: {
+                    collapseWhitespace: true,
+                    ignoreCustomComments: [/^\s*google(off|on):\s/],
+                    minifyCSS: true,
+                    minifyJS: true,
+                    removeAttributeQuotes: true,
+                    removeComments: true
+                },
+				files: {
+	                expand: true,
+					cwd: "<%= dirs.dest %>/",
+	                dest: "./",
+	                src: "<%= dirs.dest %>/**/*.html"
+				}
+            }
+        },
+
 		jekyll: {
 			site: {}
 		},
@@ -54,6 +73,86 @@ module.exports = function(grunt) {
 					"<%= dirs.src %>/assets/js/fancybox/helpers/*.js"
 				],
 				dest: "<%= dirs.dest %>/assets/js/pack.js"
+			}
+		},
+
+		uncss: {
+			options: {
+				ignore: [
+					/(#|\.)fancybox(\-[a-zA-Z]+)?/
+				],
+				htmlroot: "<%= dirs.dest %>"
+			},
+			dist: {
+				src: "<%= dirs.dest %>/**/*.html",
+				dest: "<%= dirs.dest %>/assets/css/stylesheet.css"
+			}
+		},
+
+		cssmin: {
+			minify: {
+				options: {
+					keepSpecialComments: 0,
+					compatibility: "ie8"
+				},
+				files: {
+					"<%= uncss.dist.dest %>": "<%= dirs.dest %>/assets/css/stylesheet.css"
+				}
+			}
+		},
+
+		uglify: {
+			options: {
+				compress: {
+					warnings: false
+				},
+				mangle: true,
+				preserveComments: false
+			},
+			minify: {
+				files: {
+					"<%= concat.js.dest %>": "<%= concat.js.dest %>"
+				}
+			}
+		},
+
+		filerev: {
+			css: {
+				src: "<%= dirs.dest %>/assets/css/**/{,*/}*.css"
+			},
+			js: {
+				src: [
+					"<%= dirs.dest %>/assets/js/**/{,*/}*.js"
+				]
+			},
+			images: {
+				src: [
+					"<%= dirs.dest %>/assets/**/*.{jpg,jpeg,gif,png}"
+				]
+			},
+			fonts: {
+				src: [
+					"<%= dirs.dest %>/assets/fonts/*"
+				]
+			}
+		},
+
+		useminPrepare: {
+			html: "<%= dirs.dest %>/index.html",
+			options: {
+				dest: "<%= dirs.dest %>",
+				root: "<%= dirs.dest %>"
+			}
+		},
+
+		usemin: {
+			css: "<%= dirs.dest %>/assets/css/*.css",
+			html: "<%= dirs.dest %>/**/*.html",
+			options: {
+				assetsDirs: [
+					"<%= dirs.dest %>/",
+					"<%= dirs.dest %>/assets/css"
+				]
 			}
 		},
 
@@ -97,6 +196,17 @@ module.exports = function(grunt) {
 			}
 		},
 		
+		imagemin: {
+			dist: {
+				files: [{
+	                expand: true,
+					cwd: "<%= dirs.dest %>/",
+	                dest: "<%= dirs.dest %>/",
+	                src: "**/*.{png,jpg,gif}"
+				}]
+			}
+		},
+		
 		"git-describe": {
 			build: {}
 		}
@@ -113,26 +223,28 @@ module.exports = function(grunt) {
 		"git-describe",
 		"clean",
 		"jekyll",
-		//"useminPrepare",
+		"useminPrepare",
 		"copy",
 		"concat",
 		"sass",
-		//"uncss",
-		//"cssmin",
-		//"uglify",
-		//"filerev",
-		//"usemin",
-		//"htmlmin"
+		"uncss",
+		"cssmin",
+		"uglify",
+		"filerev",
+		"imagemin",
+		"usemin",
+		"htmlmin:dist"
 	]);
 
 	grunt.registerTask("dev", [
+		"git-describe",
 		"jekyll",
-		//"useminPrepare",
+		"useminPrepare",
 		"copy",
 		"concat",
 		"sass",
-		//"filerev",
-		//"usemin"
+		"filerev",
+		"usemin"
 	]);
 
 	grunt.registerTask("default", [
