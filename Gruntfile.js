@@ -179,7 +179,7 @@ module.exports = function(grunt) {
 		},
 
 		clean: {
-			dist: "<%= dirs.dest %>/"
+			dist: ["<%= dirs.dest %>/", "<%= dirs.dist %>/"],
 		},
 		
 		compress: {
