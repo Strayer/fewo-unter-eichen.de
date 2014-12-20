@@ -11,18 +11,18 @@
 	<meta name="viewport" content="width=745">
 	<meta http-equiv="X-UA-Compatible" content="IE=10">
 	<meta http-equiv="content-language" content="de-de">
-	<meta name="description" content="{{ site.description }}">
+	<meta name="description" content="{{ site.description | escape }}">
 
 	<!-- Icons -->
 	<link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
 
 	<!-- OpenGraph -->
-	<meta property="og:title" content="{{ site.title }}{% if page.title %}: {{ page.title }}{% endif %}">
+	<meta property="og:title" content="{{ site.title | escape }}{% if page.title %}: {{ page.title | escape }}{% endif %}">
 	<meta property="og:type" content="website">
 	<meta property="og:locale" content="de_DE">
-	<meta property="og:url" content="{{ site.url }}/">
-	<meta property="og:image" content="{{ site.url }}/assets/images/eingang.jpg">
-	<meta property="og:description" content="{{ site.description }}">
+	<meta property="og:url" content="{{ site.url | escape }}/">
+	<meta property="og:image" content="{{ site.url | escape }}/assets/images/eingang.jpg">
+	<meta property="og:description" content="{{ site.description | escape }}">
 
 	<!-- Google Analytics -->
 	<script>
@@ -56,7 +56,7 @@
 	<div id="container">
 		<div id="description">
 			<img itemprop="image" src="/assets/eingang.jpg" alt="Eingang der Ferienwohnung" width="230" height="172">
-			<span itemprop="description">{{ site.description }}</span>
+			<span itemprop="description">{{ site.description | escape }}</span>
 		</div>
 		<div id="inner_container">
 			<div id="menu">
@@ -65,7 +65,7 @@
 					{% for node in site.pages %}
 						{% if node.hide_in_menu != true and node.weight == weight %}
 							{% if node.title %}
-								<a {% if page.url == node.url %}class="active"{% endif %} href="{{ node.url | prepend: site.baseurl }}">{{ node.title }}</a>
+								<a {% if page.url == node.url %}class="active"{% endif %} href="{{ node.url | prepend: site.baseurl | escape }}">{{ node.title | escape }}</a>
 							{% endif %}
 						{% endif %}
 					{% endfor %}
